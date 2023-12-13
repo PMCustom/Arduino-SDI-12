@@ -180,6 +180,7 @@ enum LookaheadMode {
   /** Only tabs, spaces, line feeds & carriage returns are skipped.*/
   SKIP_WHITESPACE
 };
+
 /**
  * @brief The function or macro used to read the clock timer value.
  *
@@ -521,6 +522,7 @@ class SDI12 : public Stream {
    * @brief reference to the data pin
    */
   int8_t _dataPin = -1;
+  int8_t _dir_pin = -1;
 
  public:
   /**
@@ -541,7 +543,7 @@ class SDI12 : public Stream {
    * When the constructor is called it resets the buffer overflow status to FALSE and
    * assigns the pin number "dataPin" to the private variable "_dataPin".
    */
-  explicit SDI12(int8_t dataPin);
+  explicit SDI12(int8_t dataPin, int8_t dir_pin = -1);
   /**
    * @brief Destroy the SDI12 object.
    *
